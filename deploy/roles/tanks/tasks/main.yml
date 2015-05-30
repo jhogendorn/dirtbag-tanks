@@ -14,3 +14,6 @@
   template: src='uwsgi.conf.j2' dest='/etc/uwsgi.d/tanks.ini' owner=uwsgi group=uwsgi
   notify:
     - restart uwsgi
+
+- name: Configure Cronjob
+  cron: name="Run Tanks Round" minute="*" user="{{ user }}" job="cd {{ tanks.path }}; ./run-tanks tanks/*" cron_file=tanks
