@@ -1,7 +1,10 @@
 ---
 
+platform: vagrant
+
 tanks:
-  version: master
-  repository: jhogendorn
-  deploy_style: repositories
+  deploy:
+    version: master
+    repository: jhogendorn
+    style: repositories
   path: /vagrant

@@ -1,0 +1,7 @@
+---
+
+- name: Clone tanks repository
+  sudo: yes
+  git: repo={{ tanks.deploy.repositories[tanks.deploy.repository] }} dest={{ tanks.path }} version={{ tanks.deploy.version }} force=yes
+  # !!! IMPORTANT: This will break your repo if you let it run over the vagrant instance
+  when: platform != "vagrant"

@@ -2,8 +2,8 @@
 
 user: vagrant
 
-tanks:
-  path: /var/www/tanks
-  hostname: tanks.dev
-  version: development
+platform: vagrant
 
+tanks:
+  path: /vagrant
+  hostname: tanks.dev

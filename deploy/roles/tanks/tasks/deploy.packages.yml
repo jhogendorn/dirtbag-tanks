@@ -1,0 +1,22 @@
+---
+
+- name: Download tanks package
+  sudo: yes
+  get_url: url={{ tanks.packages[tanks.version] }} dest=/tmp
+
+- name: Make Unpack location
+  sudo: yes
+  file: path=/tmp/tfiles mode=0755 state=directory
+
+- name: Unarchive tanks
+  sudo: yes
+  unarchive: copy=no src=/tmp/tanks-1.0.tar.gz dest=/tmp
+
+- name: Rename unpacked package
+  sudo: yes
+  shell: rm -rf /tmp/tfiles/* && mv /tmp/tanks*/* /tmp/tfiles
+
+- name: Move to location
+  sudo: yes
+  shell: rsync -av /tmp/tfiles/* {{ tanks.path }}
+

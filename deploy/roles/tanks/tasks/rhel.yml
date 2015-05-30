@@ -1,5 +1,6 @@
 ---
 
+- debug: var=tanks
 
 - name: Make deployment location
   sudo: yes
@@ -15,14 +16,15 @@
     - automake
     - python-markdown
     - rsync
+    - git
 
 - name: Deploy via package
-  include: deploy_style.packages.yml
-  when: tanks.deploy.style == 'packages'
+  include: deploy.packages.yml
+  when: tanks.deploy.style == "packages"
 
 - name: Deploy via repository
-  include: deploy_style.repositories.yml
-  when: tanks.deploy.style == 'repositories'
+  include: deploy.repositories.yml
+  when: tanks.deploy.style == "repositories"
 
 - name: Make tanks
   sudo: yes

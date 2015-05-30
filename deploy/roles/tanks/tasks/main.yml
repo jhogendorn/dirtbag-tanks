@@ -6,3 +6,11 @@
 - name: Install Nginx.conf
   sudo: yes
   template: src='nginx.conf.j2' dest='/etc/nginx/conf.d/tanks.conf'
+  notify:
+    - restart nginx
+
+- name: Install uWSGI.conf
+  sudo: yes
+  template: src='uwsgi.conf.j2' dest='/etc/uwsgi.d/tanks.ini' owner=uwsgi group=uwsgi
+  notify:
+    - restart uwsgi

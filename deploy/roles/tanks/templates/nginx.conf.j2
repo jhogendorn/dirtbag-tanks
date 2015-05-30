@@ -4,14 +4,21 @@ server {
 
   server_name {{ tanks.hostname }};
 
-  # path to gollum's public directory
+  # path to tanks's public directory
   set $public {{ tanks.path }};
 
   location / {
     root $public;
-
-    fastcgi_param BASE_PATH $public
+    try_files $uri @tanks;
   }
+
+  location @tanks {
+      include uwsgi_params;
+      uwsgi_modifier1 9;
+      uwsgi_pass localhost:9000;
+      uwsgi_param BASE_PATH $public;
+  }
+
 }
 
 
