@@ -1,0 +1,29 @@
+---
+
+
+- name: Make deployment location
+  sudo: yes
+  file: path={{ tanks.path }} mode=0755 state=directory
+
+- name: Install prerequisites
+  sudo: yes
+  yum: pkg={{ item }} state=present
+  with_items:
+    - gcc
+    - gcc-c++
+    - autoconf
+    - automake
+    - python-markdown
+    - rsync
+
+- name: Deploy via package
+  include: deploy_style.packages.yml
+  when: tanks.deploy.style == 'packages'
+
+- name: Deploy via repository
+  include: deploy_style.repositories.yml
+  when: tanks.deploy.style == 'repositories'
+
+- name: Make tanks
+  sudo: yes
+  shell: make clean && make chdir={{ tanks.path }}

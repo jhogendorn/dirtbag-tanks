@@ -1,0 +1,11 @@
+---
+
+environment: vagrant
+
+tanks:
+  repositories:
+    jhogendorn: https://github.com/jhogendorn/dirtbag-tanks.git
+    dirtbags: http://dirtbags.net/projects/ctf/tanks
+  packages:
+    stable: http://dirtbags.net/g.cgi/ctf/tanks/snapshot/tanks-1.0.tar.gz
+    development: http://dirtbags.net/g.cgi/ctf/tanks/snapshot/tanks-master.tar.gz

@@ -1,0 +1,17 @@
+server {
+
+  listen 80;
+
+  server_name {{ tanks.hostname }};
+
+  # path to gollum's public directory
+  set $public {{ tanks.path }};
+
+  location / {
+    root $public;
+
+    fastcgi_param BASE_PATH $public
+  }
+}
+
+

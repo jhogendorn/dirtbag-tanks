@@ -1,0 +1,9 @@
+---
+
+- hosts: vagrant
+  remote_user: "{{ user }}"
+  roles:
+    - role: nginx
+    - role: tanks
+      zippy_api:
+        cli: false

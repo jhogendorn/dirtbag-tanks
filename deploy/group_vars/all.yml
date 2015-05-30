@@ -1,0 +1,9 @@
+---
+
+user: vagrant
+
+tanks:
+  path: /var/www/tanks
+  hostname: tanks.dev
+  version: development
+

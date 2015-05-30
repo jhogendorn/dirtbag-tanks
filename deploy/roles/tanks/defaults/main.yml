@@ -1,0 +1,7 @@
+---
+
+tanks:
+  version: master
+  repository: jhogendorn
+  deploy_style: repositories
+  path: /vagrant
