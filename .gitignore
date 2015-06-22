@@ -23,3 +23,5 @@ forftanks/upload.cgi
 
 silex/vendor/
 silex/assets/vendor/
+
+tanks/*
