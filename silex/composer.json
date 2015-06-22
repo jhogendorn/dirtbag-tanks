@@ -1,0 +1,14 @@
+{
+    "name": "jhogendorn/forftanks",
+    "description": "A Programmatic tanks game",
+    "require": {
+        "silex/silex": "~1.3"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Joshua Hogendorn",
+            "email": "jhogendorn@gmail.com"
+        }
+    ]
+}

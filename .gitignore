@@ -2,19 +2,24 @@
 *#
 *.o
 
-round-*.html
-next-round
-points
-forftanks
+forftanks/round-*.html
+forftanks/next-round
+forftanks/points
+forftanks/forftanks
 
-designer.cgi
+forftanks/designer.cgi
 
-forf.html
-summary.html
-designer.html
-intro.html
-procs.html
-tanks/*
+forftanks/forf.html
+forftanks/summary.html
+forftanks/designer.html
+forftanks/intro.html
+forftanks/procs.html
+forftanks/tanks/*
+
+forftanks/debugger.html
+forftanks/upload.cgi
+
 .vagrant
-debugger.html
-upload.cgi
+
+silex/vendor/
+silex/assets/vendor/
