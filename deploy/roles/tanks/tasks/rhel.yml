@@ -1,7 +1,5 @@
 ---
 
-- debug: var=tanks
-
 - name: Make deployment location
   sudo: yes
   file: path={{ tanks.path }} mode=0755 state=directory
