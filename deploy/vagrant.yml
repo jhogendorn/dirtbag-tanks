@@ -6,5 +6,3 @@
     - role: nginx
     - role: php56-fpm
     - role: tanks
-      zippy_api:
-        cli: false
