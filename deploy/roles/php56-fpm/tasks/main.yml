@@ -1,0 +1,13 @@
+---
+
+- include: rhel.yml
+  when: ansible_os_family in [ 'CentOS', 'RedHat' ]
+
+- include: ubuntu.yml
+  when: ansible_os_family in [ 'Ubuntu' ]
+
+- name: Install Nginx.conf
+  sudo: yes
+  template: src='nginx.conf.j2' dest='/etc/nginx/conf.d/php.conf'
+  notify:
+    - restart nginx

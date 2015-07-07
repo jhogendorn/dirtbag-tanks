@@ -1,0 +1,6 @@
+---
+- name: update apt-cache
+  apt: update-cache=yes
+
+- name: restart nginx
+  service: name=nginx state=restarted

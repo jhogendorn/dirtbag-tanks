@@ -1,0 +1,29 @@
+---
+
+- name: Configure Repository
+  sudo: yes
+  shell: "{{ item }}"
+  with_items:
+    - rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+    - rpm -Uvh https://mirror.webtatic.com/yum/el7/webtatic-release.rpm
+  when: ansible_distribution_version in [ "7" ]
+  ignore_errors: true
+
+- name: Configure Repository
+  sudo: yes
+  shell: rpm -Uvh https://mirror.webtatic.com/yum/el6/latest.rpm
+  when: ansible_distribution_version in [ "6.5", "6.6" ]
+  ignore_errors: true
+
+- name: Install packages
+  sudo: yes
+  yum: pkg={{ item }} state=present
+  with_items:
+    - php56w-fpm
+    - php56w-common
+    - php56w-opcache
+    - php56w-bcmath
+    - php56w-mysql
+    - php56w-pgsql
+    - php56w-pdo
+    - php56w-soap
