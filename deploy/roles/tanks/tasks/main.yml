@@ -10,5 +10,5 @@
     - restart nginx
 
 
-- name: Configure Cronjob
-  cron: name="Run Tanks Round" minute="*" user="{{ user }}" job="cd {{ tanks.path }}; ./run-tanks tanks/*" cron_file=tanks
+#- name: Configure Cronjob
+#  cron: name="Run Tanks Round" minute="*" user="{{ user }}" job="cd {{ tanks.path }}; ./run-tanks tanks/*" cron_file=tanks
