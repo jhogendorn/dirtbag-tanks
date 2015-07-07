@@ -26,4 +26,4 @@
 
 - name: Make tanks
   sudo: yes
-  shell: make clean && make chdir={{ tanks.path }}
+  shell: make clean && make chdir={{ tanks.path }}/forftanks
