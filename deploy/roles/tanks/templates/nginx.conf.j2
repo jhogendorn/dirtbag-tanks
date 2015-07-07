@@ -5,18 +5,30 @@ server {
   server_name {{ tanks.hostname }};
 
   # path to tanks's public directory
-  set $public {{ tanks.path }};
+  set $public {{ tanks.path }}/silex/web;
 
-  location / {
-    root $public;
-    try_files $uri @tanks;
+  root $public;
+
+  #site root is redirected to the app boot script
+  location = / {
+      try_files @site @site;
   }
 
-  location @tanks {
-      include uwsgi_params;
-      uwsgi_modifier1 9;
-      uwsgi_pass localhost:9000;
-      uwsgi_param BASE_PATH $public;
+  #all other locations try other files first and go to our front controller if none of them exists
+  location / {
+      try_files $uri $uri/ @site;
+  }
+
+  #return 404 for all php files as we do have a front controller
+  location ~ \.php$ {
+      return 404;
+  }
+
+  location @site {
+    fastcgi_index   index.php;
+    fastcgi_pass    php;
+    include         fastcgi_params;
+    fastcgi_param   SCRIPT_FILENAME    $document_root$fastcgi_script_name;
   }
 
 }
