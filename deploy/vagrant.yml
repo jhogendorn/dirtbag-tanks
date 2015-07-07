@@ -3,7 +3,6 @@
 - hosts: vagrant
   remote_user: "{{ user }}"
   roles:
-    - role: uwsgi
     - role: nginx
     - role: tanks
       zippy_api:
